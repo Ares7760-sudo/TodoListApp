@@ -1,0 +1,39 @@
+.todoList-container {
+    margin: 20px auto;
+    padding: 10px;
+    text-align: left;
+    button {
+        cursor: pointer;
+    }
+
+    .add-todo {
+        margin: 20px 0px;
+
+        input, button {
+            margin: 20px 2px;
+            padding: 5px 5px;
+            font-size: calc(5px + 2vmin);
+        }
+
+        input {
+            width: 300px;
+        }
+    }
+
+    .todolist {
+        .todo {
+            &:first-child {
+                border-top: solid grey 1px;
+            }
+            button {
+                margin: 20px 2px;
+                padding: 5px 5px;
+                font-size: calc(5px + 2vmin);
+            }
+            span {
+               margin: 0px 10px;
+            }
+            border-bottom: solid grey 1px;
+        }
+    }
+}
