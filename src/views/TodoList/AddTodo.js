@@ -1,4 +1,5 @@
 import React from 'react';
+import {toast} from 'react-toastify';
 
 class AddTodo extends React.Component {
     state = {
@@ -12,6 +13,11 @@ class AddTodo extends React.Component {
     }
 
     handleAddNewTodo = () => {
+        if(this.state.content === '') {
+            toast.error("Bạn cần phải nhập nội dung");
+            return;
+        }
+
         let newTodo = {
             id: Math.floor(Math.random()*1000),
             content: this.state.content
