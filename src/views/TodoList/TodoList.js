@@ -1,31 +1,45 @@
 import React from 'react';
 import './TodoList.scss';
+import AddTodo from './AddTodo';
+import { toast} from 'react-toastify';
 
 class TodoList extends React.Component {
 
+    state = {
+        todoList: [
+            {id: 'todo1', content: 'Học đánh đàn bài "Trường làng em"'},
+            {id: 'todo2', content: 'Học Aerobic ở sân banh'},
+            {id: 'todo3', content: 'Học code Reactjs'}
+        ]
+    }
+
+    addTodo = (todo) => {
+        this.setState({
+            todoList: [...this.state.todoList, todo]
+        })
+
+        toast.success("Đã thêm");
+    }
+
     render() {
+        let {todoList} = this.state;
         return(
             <div className='todoList-container'>
-                <div className='add-todo'>
-                    <input type="text"></input>
-                    <button className='add'>Thêm</button>
-                </div>
+                <AddTodo 
+                    addTodo={this.addTodo}
+                />
                 <div className='todolist'>
-                    <div className='todo'>
-                        <span>Học đánh đàn bài "Trường làng em"</span>
-                        <button>Xóa</button>
-                        <button>Sửa</button>
-                    </div>
-                    <div className='todo'>
-                        <span>Học Aerobic ở sân banh</span>
-                        <button>Xóa</button>
-                        <button>Sửa</button>
-                    </div>
-                    <div className='todo'>
-                        <span>Học code Reactjs</span>
-                        <button className='delete'>Xóa</button>
-                        <button className='edit'>Sửa</button>
-                    </div>
+                {
+                    todoList.map((item, index) => {
+                        return (
+                            <div className='todo' key={item.id}>
+                                <span>{item.content}</span>
+                                <button>Xóa</button>
+                                <button>Sửa</button>
+                            </div>
+                        )
+                    })
+                }
                 </div>
             </div>
         )
