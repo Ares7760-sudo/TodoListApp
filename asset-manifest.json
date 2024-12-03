@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/TodoListApp/static/css/main.cc305759.css",
-    "main.js": "/TodoListApp/static/js/main.93acf1d1.js",
+    "main.js": "/TodoListApp/static/js/main.1819dfda.js",
     "static/js/453.81f383cb.chunk.js": "/TodoListApp/static/js/453.81f383cb.chunk.js",
     "static/media/logo.svg": "/TodoListApp/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/TodoListApp/index.html",
     "main.cc305759.css.map": "/TodoListApp/static/css/main.cc305759.css.map",
-    "main.93acf1d1.js.map": "/TodoListApp/static/js/main.93acf1d1.js.map",
+    "main.1819dfda.js.map": "/TodoListApp/static/js/main.1819dfda.js.map",
     "453.81f383cb.chunk.js.map": "/TodoListApp/static/js/453.81f383cb.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.cc305759.css",
-    "static/js/main.93acf1d1.js"
+    "static/js/main.1819dfda.js"
   ]
 }
