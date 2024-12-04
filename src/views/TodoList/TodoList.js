@@ -47,6 +47,23 @@ class TodoList extends React.Component {
     }
 
     handleEditTodo = (todo) => {
+        let {editTodo, todoList} = this.state;
+        let isEmptyEditTodoObj = Object.keys(editTodo).length === 0;
+
+        // Save
+        if (isEmptyEditTodoObj === false && editTodo.id === todo.id) {
+            let todoListCopy = [...todoList];
+            let objIndex = todoListCopy.findIndex((item => item.id === todo.id));
+            todoListCopy[objIndex].content = editTodo.content;
+
+            this.setState({
+                todoList: todoListCopy,
+                editTodo: ''
+            });
+            localStorage.setItem("todoList", JSON.stringify(todoListCopy));
+            return;
+        } 
+        // Edit
         this.setState({
             editTodo: todo
         })
@@ -101,7 +118,11 @@ class TodoList extends React.Component {
                                 >Xóa</button>
                                 <button
                                     onClick={()=>this.handleEditTodo(item)}
-                                >Sửa</button>
+                                >
+                                { isEmptyEditTodoObj === false && editTodo.id === item.id ?
+                                    'Lưu thay đổi' : 'Sửa'
+                                }
+                                </button>
                             </div>
                         )
                     })
