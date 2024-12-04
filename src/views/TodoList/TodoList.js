@@ -3,30 +3,47 @@ import './TodoList.scss';
 import AddTodo from './AddTodo';
 
 class TodoList extends React.Component {
+    constructor() {
+        super();
+        let initTodoList = JSON.parse(localStorage.getItem("todoList"));
 
-    state = {
-        todoList: [
-            {id: 'todo1', content: 'Học đánh đàn bài "Trường làng em"'},
-            {id: 'todo2', content: 'Học Aerobic ở sân banh'},
-            {id: 'todo3', content: 'Học code Reactjs'}
-        ],
-        editTodo: ''
+        if(!initTodoList) {
+            initTodoList = [
+                { id: '1', content: 'Giữ gìn sức khỏe'},
+                { id: '2', content: 'Học Aerobic ở sân banh'}
+            ]
+            localStorage.setItem("todoList", JSON.stringify(initTodoList));
+        }
+
+        this.state = {
+            todoList: initTodoList,
+            editTodo: ''
+        }
+        
     }
 
     addTodo = (todo) => {
+        let currentTodoList = [...this.state.todoList, todo];
         this.setState({
-            todoList: [...this.state.todoList, todo]
+            todoList: currentTodoList
         })
+        
+        if(currentTodoList) {
+            localStorage.setItem("todoList", JSON.stringify(currentTodoList));
+        } 
     }
 
     handleDeleteTodo = (todo) => {
-        let currentTodos = this.state.todoList;
-        currentTodos = currentTodos.filter(item => item.id !== todo.id);
+        let currentTodoList = this.state.todoList;
+        currentTodoList = currentTodoList.filter(item => item.id !== todo.id);
         this.setState(
             {
-                todoList: currentTodos
+                todoList: currentTodoList
             }
         );
+        if(currentTodoList) {
+            localStorage.setItem("todoList", JSON.stringify(currentTodoList));
+        } 
     }
 
     handleEditTodo = (todo) => {
@@ -40,6 +57,14 @@ class TodoList extends React.Component {
         editTodoCopy.content = event.target.value;
         this.setState({
             editTodo: editTodoCopy
+        })
+    }
+
+    componentDidMount(){
+        //let currentTodoList = new Map(Object.entries(JSON.parse(localStorage.getItem("todoList"))));
+        let currentTodoList = JSON.parse(localStorage.getItem("todoList"));
+        this.setState({
+            todoList: currentTodoList
         })
     }
 
