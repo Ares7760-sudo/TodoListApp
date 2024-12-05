@@ -34,13 +34,19 @@ class AddTodo extends React.Component {
         let {content} = this.state;
         return(
             <div className='add-todo'>
-                <input type="text"
-                    value={content}
-                    onChange={(event)=>this.handleOnChangeTodoContent(event)}
-                ></input>
-                <button className='add'
-                    onClick={()=>this.handleAddNewTodo()}
-                >Thêm</button>
+                <div className='row'>
+                    <div className='mb-3 mt-3 col-9'>
+                        <input type="text" class="form-control"
+                            value={content}
+                            onChange={(event)=>this.handleOnChangeTodoContent(event)}
+                        ></input>
+                    </div>
+                    <div className='mb-3 mt-3 col-3'>
+                    <button type="button" className='add btn btn-primary'
+                        onClick={()=>this.handleAddNewTodo()}
+                    >Thêm</button>
+                    </div>
+                </div>
             </div>
         )
     }

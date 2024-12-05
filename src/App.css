@@ -1,5 +1,13 @@
+body {
+  background-color: lightcyan;
+}
+
 .App {
   text-align: center;
+  font-family: "Source Serif 4", serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
 }
 
 .App-logo {
@@ -14,8 +22,8 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: lightgoldenrodyellow;
+  /* min-height: 100vh; */
   display: flex;
   flex-direction: column;
   align-items: center;

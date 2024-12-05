@@ -9,17 +9,18 @@ import Guide from './views/Guide/Guide';
 import {
   BrowserRouter,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
 function App() {
   return (
     <BrowserRouter>
     <div className="App">
+      <div className='container'>
       <header className="App-header">
         <Nav />
         <img src={logo} className="App-logo" alt="logo" />
+      </header>
         <Switch>
           <Route path="/" exact>
             <Home />
@@ -33,7 +34,8 @@ function App() {
         </Switch>
 
         <ToastContainer />
-      </header>
+
+      </div>
     </div>
     </BrowserRouter>
   );

@@ -98,7 +98,8 @@ class TodoList extends React.Component {
                 {
                     todoList.map((item, index) => {
                         return (
-                            <div className='todo' key={item.id}>
+                            <div className='row todo' key={item.id}>
+                            <div className='mb-3 mt-3 col-8 col-md-10'>
                                 { isEmptyEditTodoObj ? 
                                 <span>{index+1} - {item.content}</span>
                                 :
@@ -113,16 +114,21 @@ class TodoList extends React.Component {
                                     }
                                 </>
                             }
-                                <button
+                            </div>
+                            <div className='mb-3 mt-3 col-2 col-md-1'>
+                                <button className='btn btn-sm btn-secondary'
                                     onClick={()=>this.handleDeleteTodo(item)}
                                 >Xóa</button>
-                                <button
+                                </div>
+                                <div className='mb-3 mt-3 col-2 col-md-1'>
+                                <button className='btn btn-sm btn-warning'
                                     onClick={()=>this.handleEditTodo(item)}
                                 >
                                 { isEmptyEditTodoObj === false && editTodo.id === item.id ?
                                     'Lưu thay đổi' : 'Sửa'
                                 }
                                 </button>
+                                </div>
                             </div>
                         )
                     })
