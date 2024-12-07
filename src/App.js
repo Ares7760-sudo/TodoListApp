@@ -22,14 +22,14 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
       </header>
         <Switch>
-          <Route path="/" exact>
-            <Home />
-          </Route>
           <Route path="/guide">
             <Guide />
           </Route>
           <Route path="/todo">
-          <TodoList />
+            <TodoList />
+          </Route>
+          <Route path="/">
+            <Home />
           </Route>
         </Switch>
 
